@@ -7,7 +7,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 @pytest.fixture()
 def setUp():
-    global movieName, release, director, producer, language,driver
+    global movieName, release, director, producer, language,driver, distributor
     movieName = input("Enter movie name:")
     release = input("Enter movie realease data")
     director = input("Enter movie director name")
@@ -19,6 +19,7 @@ def setUp():
     yield
     time.sleep(5)
     driver.close()
+
 def test_form(setUp):
     driver.get("https://iprimedtraining.herokuapp.com/movie.php")
     driver.find_element_by_name("mname").send_keys(movieName)
